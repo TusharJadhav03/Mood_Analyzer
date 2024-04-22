@@ -1,8 +1,7 @@
 package org.example.userregister;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MoodAnalyzerTest {
 
@@ -10,6 +9,10 @@ class MoodAnalyzerTest {
 
     @Test
     void analyzeMood() throws Exception{
-        
+        String mood = moodAnalyzer.analyzeMood("I am in Sad Mood".toLowerCase());
+        Assertions.assertEquals(mood,"SAD");
+
     }
+
+
 }
