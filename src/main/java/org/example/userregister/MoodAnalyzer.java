@@ -2,7 +2,12 @@ package org.example.userregister;
 
 public class MoodAnalyzer {
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to mood analyzer");
+    public String analyzeMood(String msg){
+        if(msg.contains("sad")){
+            return "SAD";
+        }
+        else {
+            return "HAPPY";
+        }
     }
 }
