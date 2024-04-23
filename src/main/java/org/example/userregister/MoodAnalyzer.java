@@ -1,17 +1,22 @@
 package org.example.userregister;
 
-public class MoodAnalyzer extends  Exception{
+public class MoodAnalyzer {
 
     private String msg;
 
     public MoodAnalyzer(){
 
     }
-    public MoodAnalyzer(String msg){
+    public MoodAnalyzer(String msg) throws MoodAnalyzerException{
         this.msg = msg;
     }
 
-    public String analyzeMood(){
+    public void analyzeMood(String msg) throws MoodAnalyzerException{
+        this.msg = msg;
+        analyzeMood();
+    }
+
+    public String analyzeMood() throws MoodAnalyzerException{
         try {
             if (msg.contains("sad")) {
                 return "SAD";
@@ -20,7 +25,7 @@ public class MoodAnalyzer extends  Exception{
             }
         }
         catch (NullPointerException e){
-            return "HAPPY";
+            throw new MoodAnalyzerException("Enter a valid Input");
         }
 
     }
