@@ -20,6 +20,15 @@ class MoodAnalyzerTest {
         Assertions.assertEquals(mood,"HAPPY");
     }
 
+    @Test
+    void analyzeNullMood() throws MoodAnalyzerException {
+        MoodAnalyzer moodAnalyzer3 = new MoodAnalyzer(null);
 
+        try {
+            moodAnalyzer3.analyzeMood(null);
+        } catch (MoodAnalyzerException e) {
+            Assertions.assertEquals("Enter a valid Input",e.getMessage());
+        }
+    }
 
 }
