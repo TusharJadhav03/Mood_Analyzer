@@ -1,6 +1,6 @@
 package org.example.userregister;
 
-public class MoodAnalyzer {
+public class MoodAnalyzer extends  Exception{
 
     private String msg;
 
@@ -12,11 +12,16 @@ public class MoodAnalyzer {
     }
 
     public String analyzeMood(){
-        if(msg.contains("sad")){
-            return "SAD";
+        try {
+            if (msg.contains("sad")) {
+                return "SAD";
+            } else {
+                return "HAPPY";
+            }
         }
-        else {
+        catch (NullPointerException e){
             return "HAPPY";
         }
+
     }
 }
