@@ -27,7 +27,18 @@ class MoodAnalyzerTest {
         try {
             moodAnalyzer3.analyzeMood(null);
         } catch (MoodAnalyzerException e) {
-            Assertions.assertEquals("Enter a valid Input",e.getMessage());
+            Assertions.assertEquals(MoodAnalyzerException.ExceptionType.NULL,e.type);
+        }
+    }
+
+    @Test
+    void analyzeEmptyMood() throws MoodAnalyzerException {
+        MoodAnalyzer moodAnalyzer4 = new MoodAnalyzer(" ");
+
+        try {
+            moodAnalyzer4.analyzeMood(" ");
+        } catch (MoodAnalyzerException e) {
+            Assertions.assertEquals(MoodAnalyzerException.ExceptionType.EMPTY,e.type);
         }
     }
 
